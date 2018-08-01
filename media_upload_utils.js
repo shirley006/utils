@@ -1,8 +1,5 @@
-/**
- * Created by bryonliu on 2017/1/19.
- */
-/*
- 参数说明:
+ /*
+参数说明:
  opt.url : 文件要提交到的地址;
  opt.type :  1 图片 2 音频 3 视频
  opt.success : 上传成功后回调;
