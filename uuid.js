@@ -1,8 +1,3 @@
-/**
- * Created by p_yunfzhang on 2017/3/13.
- * this is uuid generator util used to generate html dom id
- */
-
 class UUID {
     static uuid() {
         let uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
