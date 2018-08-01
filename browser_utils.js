@@ -1,7 +1,3 @@
-/**
- * Created by bryonliu on 2017/1/22.
- */
-
 "use strict";
 
 exports.isIE = function () {
