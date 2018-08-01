@@ -1,9 +1,3 @@
-/**
- * Created by divewang on 2017/2/13.
- * 字符串编码输出
- */
-
-
 exports.HTMLEncode = function (html) {
     var temp = document.createElement("div");
     (temp.textContent != null) ? (temp.textContent = html) : (temp.innerText = html);
