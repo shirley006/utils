@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /**
+     *     getTime()  	  // 返回毫秒数和valueOf()结果一样，valueOf()内部调用的getTime()
+     *     getMilliseconds()
+     *     getSeconds()  // 返回0-59
+     *     getMinutes()  // 返回0-59
+     *     getHours()    // 返回0-23
+     *     getDay()      // 返回星期几 0周日   6周6
+     *     getDate()     // 返回当前月的第几天
+     *     getMonth()    // 返回月份，***从0开始***
+     *     getFullYear() //返回4位的年份  如 2016
+     */
+
+//    写一个函数，格式化日期对象，返回yyyy-MM-dd HH:mm:ss的形式
+
+
+    
+        function formatDate(d) {
+     //    创建一个日期对象
+//        var now = new Date();
+        //如果date不是日期对象，返回
+        if (!(d instanceof Date)) {
+            return;
+        }
+    //    获取年月日时分秒
+            var year = d.getFullYear(),
+                month = d.getMonth()+1,
+                date = d.getDate(),
+                hours = d.getHours(),
+                minutes = d.getMinutes(),
+                seconds = d.getSeconds();
+    //      如果小于10，数据要补0
+            month = month < 10 ?  "0"+month : month;
+            date = date < 10 ?  "0"+date : date;
+            hours = hours < 10 ?  "0"+hours : hours;
+            minutes = minutes < 10 ?  "0"+minutes : minutes;
+            seconds = seconds < 10 ?  "0"+seconds : seconds;
+
+            return year+"-"+month+"-"+date+" "+hours+":"+minutes+":"+seconds;
+        }
+        var time = new Date(1483240271000);
+        console.log( formatDate(time) );
+//    console.log(new Date());
+//    console.log(new Date().valueOf());
+    //    console.log(str);
+    
+
+//    console.log(new Date());  //当前时间
+//    console.log(new Date("2017-10-15"));  //当前时间
+//    console.log(new Date(2017,10-1,15));    //当前时间
+
+</script>
