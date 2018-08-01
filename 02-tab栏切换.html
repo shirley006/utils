@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        .wrapper {
+            width: 1000px;
+            height: 475px;
+            margin: 0 auto;
+            margin-top: 100px;
+        }
+        .tab {
+            border: 1px solid #ddd;
+            border-bottom: 0;
+            height: 36px;
+            width: 320px;
+        }
+        .tab li {
+            position: relative;
+            float: left;
+            width: 80px;
+            height: 34px;
+            line-height: 34px;
+            text-align: center;
+            cursor: pointer;
+            border-top: 4px solid #fff;
+        }
+        .tab span {
+            position: absolute;
+            right: 0;
+            top: 10px;
+            background: #ddd;
+            width: 1px;
+            height: 14px;
+            overflow: hidden;
+        }
+        .products {
+            width: 1002px;
+            border: 1px solid #ddd;
+            height: 476px;
+        }
+        .products .main {
+            float: left;
+            display: none;
+        }
+        .products .main.selected {
+            display: block;
+        }
+        .tab li.active {
+            border-color: red;
+            border-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+<div class="wrapper">
+    <ul class="tab" id="tab">
+        <li class="tab-item active">国际大牌<span>◆</span></li>
+        <li class="tab-item">国妆名牌<span>◆</span></li>
+        <li class="tab-item">清洁用品<span>◆</span></li>
+        <li class="tab-item">男士精品</li>
+    </ul>
+    <div class="products" id="products">
+        <div class="main selected">
+            <a href="###"><img src="images/guojidapai.jpg" alt=""/></a>
+        </div>
+        <div class="main">
+            <a href="###"><img src="images/guozhuangmingpin.jpg" alt=""/></a>
+        </div>
+        <div class="main">
+            <a href="###"><img src="images/qingjieyongpin.jpg" alt=""/></a>
+        </div>
+        <div class="main">
+            <a href="###"><img src="images/nanshijingpin.jpg" alt=""/></a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+<script>
+    var tab = document.getElementsByClassName("tab");
+    var tabChild = tab[0].children;
+    var products = document.getElementsByClassName("products");
+    var items = products[0].children;
+  
+    function click_thing(){
+        tabChild[i].onclick= function(){
+            // console.log(this);
+            for(var j=0;j< tabChild.length; j++) {
+                tabChild[j].className = "tab-item";
+            }
+            for(var n=0; n< items.length; n++) {
+                items[n].className = "main";
+            }
+            // console.log(items);
+            items[this.index].className = "selected";
+            this.className = "active";
+        }
+    }
+    for(var i=0;i< tabChild.length; i++) {
+        tabChild[i].index = i;
+        click_thing();
+    }
+
+</script>
