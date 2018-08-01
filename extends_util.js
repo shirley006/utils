@@ -1,5 +1,4 @@
 /**
- * Created by p_yunfzhang on 2017/3/8.
  * @desc  根据文件扩展名,检查文件是属于 image, audio 还是 video
  */
 
