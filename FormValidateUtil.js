@@ -1,7 +1,3 @@
-/**
- * Created by shinywsui on 2017/3/20.
- * 表单常用字段验证
- */
 class ValidateTools {
 
     static isValidUrl(str) {
