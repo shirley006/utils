@@ -1,7 +1,3 @@
-/** 字符串工具
- * Created by p_yunfzhang on 2017/3/25.
- */
-
 "use strict";
 
 function StringUtils() {
