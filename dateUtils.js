@@ -1,8 +1,4 @@
-  /**
-   * Created by divewang on 2017/1/18.
-   * 日期处理工具类
-   */
-  'use strict';
+ 'use strict';
   var DateUtil = function () {
   }
 
