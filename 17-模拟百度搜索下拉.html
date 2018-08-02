@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-size: 20px;
+        }
+        .box {
+            width: 600px;
+            height: 40px;
+            margin: 200px auto;
+            position: relative;
+        }
+        #txt {
+            width: 488px;
+            height: 38px;
+            border: 1px solid #3385ff;
+            font-size: 20px;
+            float: left;
+            outline: none;
+            padding-left: 10px;
+            position: relative;
+        }
+        span {
+            position: absolute;
+            display: inline-block;
+            top: 9px;
+            right: 106px;
+            width: 20px;
+            height: 20px;
+            color: rgb(63, 62, 62);
+            border: 1px solid #eee;
+            line-height: 20px;
+            text-align: center;
+            cursor: pointer;
+        }
+        #search {
+            width: 100px;
+            height: 40px;
+            float: left;
+            border:0 none;
+            background-color: #3385ff;
+            color:#fff;
+            cursor: pointer;
+        }
+        #keywords {
+            position: absolute;
+            top: 40px;
+            left: 0;
+            background-color: rgb(12, 255, 24);
+            list-style: none;
+            width: 500px;;
+        }
+        li {
+            line-height: 24px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="baidu">
+        <input type="text" id="txt"/>
+        <input type="button" value="百度一下" id="search"/>
+        <span>x</span>
+    </div>
+    <ul id="keywords"></ul>
+</div>
+<script>
+
+    // 这里是模拟我们的数据库
+    var keywords = ["12","123456789","1234","1234567","12345678","123","123456","JavaScript","Java","3456","678","1234567","456","78","56","十九大","十八大","十全十美"];
+
+//    键盘抬起事件
+    var txt = document.getElementById('txt');
+    var keywordsList = document.getElementById('keywords');
+    var search = document.getElementById("search");
+    var span_1 = document.getElementsByTagName("span")[0];
+    var array_new = [];
+    var array = [];
+    search.onclick = function(){
+        if(txt.value){
+          alert("hiahia");
+        }else {
+          alert("值为空！");
+        }
+    }
+ 
+    span_1.style.display = "none";
+ 
+    span_1.onclick = function(){
+        txt.value = "";
+        this.style.display = "none";
+    }
+    txt.onkeyup = function(){
+        var value = this.value.trim();
+        keywordsList.style.display = "block";
+        array = [];
+        array_new = [];
+        
+        for(var i=0; i< keywords.length; i++) {
+            if(keywords[i].indexOf(value) != -1) {
+                array.push(keywords[i]);
+             }
+        }
+        if(txt.value.trim() =="") {
+            array = [];
+        }
+        
+       
+        for(var i=0;i< array.length; i++) {
+            array_new.push("<li> " +array[i]+"</li>");
+        }
+
+        keywordsList.innerHTML = array_new.join("");
+      
+        for(let i=0; i<array_new.length; i++) {
+            document.getElementsByTagName("li")[i].onclick = function(){
+                console.log(this);
+                txt.value = this.innerText;
+            }
+        }
+
+        if(value){
+            console.log("不为空");
+            span_1.style.display = "block";
+        }else {
+            span_1.style.display = "none";
+        }
+   
+     }
+    // 不论鼠标指针穿过被选元素或其子元素，都会触发 mouseover 事件。
+     document.getElementsByTagName("ul")[0].onmouseleave = function(e){
+        this.style.display = "none";
+            console.log(this);
+             // e = window.event || e;  mouseout
+            // if (!this.contains( e.toElement || e.relatedTarget)) {   
+            //     this.style.display = "none";
+            // }  
+        }
+ 
+</script>
+</body>
+</html>
