@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            position: relative;
+
+        }
+        div {
+            margin-top: 10px;
+            width: 100px;
+            height: 100px;
+            background: pink;
+            position: absolute;
+            left: 0;
+        }
+
+        .gg {
+            position: absolute;
+            left: 201px;
+            width: 30px;
+            height: 90px;
+            background: blue;
+            /* margin-left: 201px; */
+            
+        }
+        .gg_1 {
+            position: absolute;
+            left: 400px;
+            width: 30px;
+            height: 90px;
+            background: green;
+        }
+        .gg_2 {
+            position: absolute;
+            left: 1000px;
+            width: 30px;
+            height: 90px;
+            background: green;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var btn = document.getElementsByTagName("button");
+            var box = document.getElementsByTagName("div");
+            var step =0;
+            var timer = 0;
+            function animate(element,number){
+                clearInterval(element.timer);
+                element.timer = setInterval(function(){
+                    if(step <number) {
+                        step +=10;
+                        if(step >number) {
+                            step = number;
+                            console.log(step);
+                            clearInterval(element.timer);
+                            return;
+                        }
+                    }else {
+                        step -=10;
+                        if(step <number) {
+                            step = number;
+                            clearInterval(element.timer);
+                            return;
+                        }
+                    }
+                    box[0].style.left = step + "px";
+                    
+                },20);
+            }
+
+            btn[0].onclick = function(event){
+               animate(btn[0],200);
+               
+            }
+            btn[1].onclick = function(event){
+                animate(btn[1],400);
+            }
+
+            btn[2].onclick = function(event){
+                animate(btn[2],1000);
+            }
+        }
+    </script>
+</head>
+<body>
+    <button>到达201的位置</button>
+    <button>到达400的位置</button>
+    <button>到达1000的位置</button>
+    <div></div>
+    
+</body>
+</html>
